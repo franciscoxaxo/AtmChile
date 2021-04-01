@@ -32,7 +32,10 @@ ClimateData <- function(inEstaciones, inParametros, inicio, fin){
                     csvname <- paste(estaciones[j],"_",date[m],"_", parametros[l], "_.csv", sep = "")
                     download.file(url3, destfile = filename, method = "curl")
                     unzip(zipfile = filename)
-                    file.remove(filename)
+                    try({
+                      file.remove(filename)
+                    }, silent = T)
+
                     csv  <- read.csv(csvname, sep =  ";", dec = ".")
                    if(length(aux2) == 0){
                      aux2 <- csv
@@ -49,7 +52,6 @@ ClimateData <- function(inEstaciones, inParametros, inicio, fin){
               if(length(predata) == 0){
                 predata <- aux2
               } else{
-                print(aux2[3])
                 predata <- cbind(predata, aux2[3])
               }
 

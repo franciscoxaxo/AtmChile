@@ -53,15 +53,14 @@ ChileAirQuality <- function(Comunas = "INFO", Parametros, fechadeInicio,
 
     fi <- paste(fechadeInicio,"1:00") #incluir hora en fecha de inicio
     ft <- paste(fechadeTermino,"23:00") # incluir hora en fecha de termino
-    Fecha_inicio <-  as.POSIXct(strptime(fi, format = "%d/%m/%Y %H:%M")) #Asignar formato de fecha de termino
-    Fecha_termino<-as.POSIXct(strptime(ft, format = "%d/%m/%Y %H:%M")) #Asignar formato de fecha de termino
+    Fecha_inicio <- as.POSIXct(strptime(fi, format = "%d/%m/%Y %H:%M")) #Asignar formato de fecha de termino
+    Fecha_termino<- as.POSIXct(strptime(ft, format = "%d/%m/%Y %H:%M")) #Asignar formato de fecha de termino
 
     #Fechas para arana#
     Fecha_inicio_para_arana <- as.character(Fecha_inicio, format("%y%m%d")) #formato fecha inicio para el enrutador
     Fecha_termino_para_arana <-  as.character(Fecha_termino, format("%y%m%d")) #formato fecha termino para el enrutador
     id_fecha <- gsub(" ","",paste("from=", Fecha_inicio_para_arana, "&to=", Fecha_termino_para_arana)) #codigo de intervalo de fechas para enrutador
     horas <- (as.numeric(Fecha_termino)/3600-as.numeric(Fecha_inicio)/3600) #horas entre fechas
-
 
 
     urlSinca  <- "https://sinca.mma.gob.cl/cgi-bin/APUB-MMA/apub.tsindico2.cgi?outtype=xcl&macro=./" #parte inicial url de extraccion
