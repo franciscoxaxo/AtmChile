@@ -4,11 +4,7 @@ Title: Library that allows compiling information on air quality and meteorologic
 Version: 0.1.0
 Author: Francisco Catalan Meyer
 Maintainer: Francisco Catalan Meyer <francisco.catalan@ug.uchile.cl>
-Description: Library that allows compiling information on air quality parameters
-and meteorological parameters of Chile from the sites of the National Air
-Quality System (SINCA) dependent on the Ministry of the Environment and the
-Meteorological Directorate of Chile (DMC) dependent on the Directorate General
-of Civil Aeronautics.
-License: OpenSource
+Description: Library that allows compiling information on air quality parameters and meteorological parameters of Chile from the sites of the National Air Quality System (SINCA) dependent on the Ministry of the Environment and the Meteorological Directorate of Chile (DMC) dependent on the Directorate General of Civil Aeronautics.
+License: GNU
 Encoding: UTF-8
 LazyData: true
