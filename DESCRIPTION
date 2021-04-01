@@ -1,7 +1,6 @@
 Package: climateandquality
 Type: Package
-Title: Library that allows compiling information on air quality parameters and
-meteorological parameters of Chile
+Title: Library that allows compiling information on air quality and meteorological parameters of Chile
 Version: 0.1.0
 Author: Francisco Catalan Meyer
 Maintainer: Francisco Catalan Meyer <francisco.catalan@ug.uchile.cl>
