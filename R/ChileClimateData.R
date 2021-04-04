@@ -63,10 +63,12 @@ ChileClimateData <- function(Estaciones = "INFO", Parametros, inicio, fin){
       if(Estaciones[i] == tablaEstaciones[j, 1]){
         estacion_var <- tablaEstaciones[j, 1]
         Latitud      <- tablaEstaciones[j, 5]
-        Logitud      <- tablaEstaciones[j, 6]
+        Longitud      <- tablaEstaciones[j, 6]
 
-        Nombre <- rep(tablaEstaciones[j, 4], length(date))
-        data <- data.frame(date, Nombre)
+        Nombre   <- rep(tablaEstaciones[j, 4], length(date))
+        Latitud  <- rep(tablaEstaciones[j, 5], length(date))
+        Longitud <- rep(tablaEstaciones[j, 6], length(date))
+        data     <- data.frame(date, Nombre, Latitud, Longitud)
         setDT(data)
 
         for(k in 1:lenInParametros){
