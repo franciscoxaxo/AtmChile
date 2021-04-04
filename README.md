@@ -150,7 +150,7 @@ N.  | National Code     |                               Name     | Latitude   |L
 
 **Estaciones:** data vector containing the  codes of the monitoring stations. To see the table with the monitoring stations use:
 
-         ClimateData()
+         ChileClimateData()
 
 **Parametros:** data vector containing the names of the climate parameters. Available parameters: "Temperatura", "PuntoRocio", "Humedad","Viento", "PresionQFE", "PresionQFF".
 
@@ -162,4 +162,4 @@ N.  | National Code     |                               Name     | Latitude   |L
 
 #### Example 1:
 
-        ClimateData(Estaciones = c("180005", "200006"), Parametros = c("Temperatura", "Humedad", "Viento"), inicio = "2020", fin = "2021")
+        ChileClimateData(Estaciones = c("180005", "200006"), Parametros = c("Temperatura", "Humedad", "Viento"), inicio = "2020", fin = "2021")
