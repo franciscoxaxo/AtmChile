@@ -2,7 +2,7 @@
 % Please edit documentation in R/ChileClimateData.R
 \name{ChileClimateData}
 \alias{ChileClimateData}
-\title{Title ClimateData}
+\title{Title ChileClimateData}
 \usage{
 ChileClimateData(Estaciones = "INFO", Parametros, inicio, fin)
 }
@@ -21,8 +21,9 @@ Available parameters: "Temperatura", "PuntoRocio", "Humedad","Viento", "PresionQ
 function that compiles climate data from Climate direction of Chile (DMC)
 }
 \examples{
-ClimateData()
-data <- ClimateData(Estaciones = "180005", Parametros = c("Temperatura", "Humedad"), inicio = "2020", fin = "2021")
+ChileClimateData()
+
+data <- ChileClimateData(Estaciones = "180005", Parametros = c("Temperatura", "Humedad"), inicio = "2020", fin = "2021")
 
 
 }

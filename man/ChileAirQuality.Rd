@@ -43,5 +43,5 @@ ChileAirQuality()
 
 ChileAirQuality(Comunas = "El Bosque", Parametros = c("PM10", "PM25"), fechadeInicio = "01/01/2020", fechadeTermino = "02/01/2020")
 
-ChileAirQuality(Comunas = "SA", Parametros = "PM10", fechadeInicio = "01/01/2020", fechadeTermino = "02/01/2020", Site = T)
+data <- ChileAirQuality(Comunas = c("PA", "PU", "LC"), Parametros = "NOX", fechadeInicio = "01/01/2020", fechadeTermino = "02/01/2020", Site = TRUE, Curar = FALSE)
 }

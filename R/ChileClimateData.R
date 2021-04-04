@@ -1,4 +1,4 @@
-#' Title ClimateData
+#' Title ChileClimateData
 #' @description function that compiles climate data from Climate direction of Chile (DMC)
 #' @param Estaciones data vector containing the  codes of the monitoring
 #'  stations. To see the table with the monitoring stations use ClimateData()
@@ -13,15 +13,15 @@
 #' @import utils
 #'
 #' @examples
-#' ClimateData()
+#' ChileClimateData()
 #'
-#' data <- ClimateData(Estaciones = "180005", Parametros = c("Temperatura", "Humedad"), inicio = "2020", fin = "2021")
+#' data <- ChileClimateData(Estaciones = "180005", Parametros = c("Temperatura", "Humedad"), inicio = "2020", fin = "2021")
 #'
 #'
 ChileClimateData <- function(Estaciones = "INFO", Parametros, inicio, fin){
 
-  tablaEstaciones <- read.csv("Estaciones.csv", sep = "," , dec =".", encoding = "UTF-8")
-  View(tablaEstaciones)
+  sysEstaciones   <- system.file("extdata", "Estaciones.csv", package = "climateandquality")
+  tablaEstaciones <- read.csv(sysEstaciones, sep = "," , dec =".", encoding = "UTF-8")
 
   if(Estaciones[1] == "INFO"){
     return(tablaEstaciones)
