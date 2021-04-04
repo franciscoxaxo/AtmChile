@@ -15,18 +15,17 @@
 #'  nitrogen oxides, relative humidity and wind direction.
 #' @param Site logical value that allows entering the code of the monitoring
 #' station in the variable "Comunas"
-#' @return data frame with air quality data
+#' @export
+#' @import utils
 #' @examples
 #' ChileAirQuality()
-#' #' ChileAirQuality(Comunas = "El Bosque", Parametros = c("PM10", "PM25"),
-#'  fechadeInicio = "01/01/2020", fechadeTermino = "02/01/2020")
-#' ChileAirQuality(Comunas = "SA", Parametros = "PM10",
-#'  fechadeInicio = "01/01/2020", fechadeTermino = "02/01/2020", Site = T)
+#'
+#' ChileAirQuality(Comunas = "El Bosque", Parametros = c("PM10", "PM25"), fechadeInicio = "01/01/2020", fechadeTermino = "02/01/2020")
+#'
+#' ChileAirQuality(Comunas = "SA", Parametros = "PM10", fechadeInicio = "01/01/2020", fechadeTermino = "02/01/2020", Site = T)
 
 
-
-ChileAirQuality <- function(Comunas = "INFO", Parametros, fechadeInicio,
-                            fechadeTermino, Site = FALSE, Curar = TRUE){
+ChileAirQuality <- function(Comunas = "INFO", Parametros, fechadeInicio, fechadeTermino, Site = FALSE, Curar = TRUE){
 
   Ciudad <- c("SA", "CE1", "CE", "CN","EB", "IN","LF","LC","PU","PA","QU","QU1", "COI", "COII")
 
@@ -67,13 +66,14 @@ ChileAirQuality <- function(Comunas = "INFO", Parametros, fechadeInicio,
     urlSinca2 <- "&path=/usr/airviro/data/CONAMA/&lang=esp&rsrc=&macropath=" #parte final de ur de extraccion
 
     #Data frame vacio#
-    date= NULL
-    for(n in 0:horas)
-    {
-      date <- c(date, as.character(Fecha_inicio+3600*n, "%d/%m/%Y %H:%M")) #Generar coluna fecha
-    }
+    date = NULL
+    date <- seq(Fecha_inicio, Fecha_termino, by = "hour")
+    date <- format(date, format = "%d/%m/%Y %H:%M")
     data <- data.frame(date)#Parche que evita un ERROR
     data_total <- data.frame() #Data frame Vacio
+
+
+
 
     for (i in 1:length(Comunas)) {
       try({
