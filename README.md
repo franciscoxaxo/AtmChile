@@ -91,7 +91,7 @@ N° |Code      |Latitude    |Longitude    |Estation                  |
 
 **Curar:** logical value that activates data curation for particulate matter, nitrogen oxides, relative humidity and wind direction. Default value: TRUE.
 
-**Site:** logical value that allows entering the code of the monitoring station in the variable "Comunas". Default value: FALSE
+**Site:** logical value that allows entering the code of the monitoring station in the variable "Comunas". Default value: FALSE.
 
 ### Examples:
 
