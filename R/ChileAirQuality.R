@@ -27,24 +27,9 @@
 
 ChileAirQuality <- function(Comunas = "INFO", Parametros, fechadeInicio, fechadeTermino, Site = FALSE, Curar = TRUE){
 
-  Ciudad <- c("SA", "CE1", "CE", "CN","EB", "IN","LF","LC","PU","PA","QU","QU1", "COI", "COII")
+  sysEstaciones   <- system.file("extdata", "SINCA.CSV", package = "climateandquality")
+  estationMatrix <- read.csv(sysEstaciones, sep = ",", dec =".", encoding = "UTF-8") #Matriz base de estaciones de monitoreo
 
-  cod <- c("RM/D14", "RM/D16", "RM/D31", "RM/D18", "RM/D17", "RM/D11", "RM/D12",
-           "RM/D13", "RM/D15", "RM/D27", "RM/D30", "RM/D19", "RXI/B03", "RXI/B04")
-
-  Latitud <- c("-33.450819", "-33.479515", "-33.482411","-33.419725","-33.533626","-33.408920",
-               "-33.503288", "-33.363453", "-33.424439", "-33.577948", "-33.33632",
-               "-33.352539", "-45.57993636", "-45.57904645")
-
-  Longitud <- c("-70.6604476", "-70.719064", "-70.703947"," -70.731790", "-70.665906",
-                "-70.650886", "-70.587916", "-70.523024", "-70.749876", "-70.594184",
-                "-70.723583", "-70.747952", "-72.06108480", "-72.04996681")
-
-  Estacion <- c("P. O'Higgins", "Cerrillos 1", "Cerrillos", "Cerro Navia", "El Bosque",
-                "Independecia", "La Florida", "Las Condes", "Pudahuel", "Puente Alto",
-                "Quilicura", "Quilicura 1", "Coyhaique I", "Coyhaique II")
-
-  estationMatrix <- data.frame(Ciudad, cod, Latitud, Longitud, Estacion) #Matriz base de estaciones de monitoreo
 
   if(Comunas[1] == "INFO"){ #"INFO" para solicitar informacion de estaciones de monitoreo
     return((estationMatrix)) #Retorna matriz de estaciones
@@ -73,12 +58,11 @@ ChileAirQuality <- function(Comunas = "INFO", Parametros, fechadeInicio, fechade
     data_total <- data.frame() #Data frame Vacio
 
 
-
-
     for (i in 1:length(Comunas)) {
       try({
         inEstation <- Comunas[i] # Asignar Comunas a variable
-        for(j in 1:length(Ciudad)){
+        print(nrow(estationMatrix))
+        for(j in 1:nrow(estationMatrix)){
           mSite      <-  estationMatrix[j, 1] #Asignar site a variable
           mCod       <-  estationMatrix[j, 2] #Asignar code a variable
           mLat       <-  estationMatrix[j, 3] #Asignar latitud a variable
@@ -299,7 +283,8 @@ ChileAirQuality <- function(Comunas = "INFO", Parametros, fechadeInicio, fechade
 
                 try(
                   {
-                    data_total <- rbind(data_total, data) #Unir el df de cada comuna al df total
+                    data_total <- rbind(data_total, data)
+                    #Unir el df de cada comuna al df total
                   }
                   , silent = T)
               }
@@ -315,6 +300,7 @@ ChileAirQuality <- function(Comunas = "INFO", Parametros, fechadeInicio, fechade
 
     if(Curar){
       len = nrow(data_total) #Variable que almacena el numero de filas del dataframe
+
       try({
         for (i in 1:len)
         {
