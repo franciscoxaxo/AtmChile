@@ -33,46 +33,44 @@ HR       |Relative humidity                                 | %
 
 The following stations are available:
 
-N° |Code     |Latitude    |Longitude    |Estation         |
----|---------|------------|-------------|-----------------|
-1  |     SA  |  -33.4508  |-70.6604     |P. O'Higgins     |
-2  |    CE1  |   -33.4795 |  -70.7190   |Cerrillos 1      |
-3  |     CE  |  -33.4824  | -70.7039    |Cerrillos        |
-4  |     CN  |   -33.4197 |  -70.7317   |Cerro Navia      |
-5  |     EB  |   -33.5336 |  -70.6659   | El Bosque       |
-6  |     IN  |   -33.4089 |  -70.6508   |Independecia     |
-7  |     LF  |   -33.5032 |  -70.5879   |La Florida       |
-8  |     LC  |   -33.3634 |  -70.5230   |Las Condes       |
-9  |     PU  |   -33.4244 |  -70.7498   |  Pudahuel       |
-10 |     PA  |   -33.5779 |  -70.5941   |Puente Alto      |
-11 |     QU  |    -33.336 |  -70.7235   | Quilicura       |
-12 |    QU1  |   -33.3525 |  -70.7479   |Quilicura 1      |
-13 |    COI  |-45.5799    | -72.0610    |Coyhaique I      |
-14 |   COII  |-45.5790    | -72.0499    |Coyhaique II     | 
-15 |AH       |RI/117|-20.290467|-70.100192|Alto Hospicio|
-16 |AR       |RXV/F01|-18.476839|-70.287911|Arica|
-17 |TE       |RIX/901|-38.748699|-72.620788|Las Encinas Temuco|
-18 |TEII     |RIX/905|-38.727003|-72.580002|Nielol Temuco|
-19 |TEIII    |RIX/904|-38.725302|-72.571193| Museo Ferroviario Temuco|
-20 |PLCI     |RIX/903|-38.772463|-72.595024|Padre Las Casas I|
-21 |PLCII    |RIX/902|-38.764767|-72.598796|Padre Las Casas II|
-22 |LU       |RXIV/E04|-40.286857|-73.07671|La Union|
-23 |LR       |RXIV/E06|-40.321282|-72.471895|CESFAM Lago Ranco|
-24 |MAI      |RXIV/E01|-39.665626|-72.953729|Mafil|
-25 |MAII     |RXIV/E05|-39.542346|-72.925205|Fundo La Ribera|
-26 |MAIII    |RXIV/E02|-39.719218|-73.128677|Vivero Los Castanos|
-27 |VA       |RXIV/E03|-39.831316|-73.228513|Valdivia I|
-28 |VAII     |RXIV/E08|-39.805429|-73.25873|Valdivia II|
-29 |OS|RX/A01|-40.584479|-73.11872|Osorno|
-30 |OSII|RX/A04|-40.683736|-72.596399|Entre Lagos|
-31 |PMI|RX/A08|-41.39917|-72.899523|Alerce|
-32 |PMII|RX/A07|-41.479507|-72.968756|Mirasol|
-33 |PMIII|RX/A02|-41.510342|-73.065294|Trapen Norte|
-34 |PMIV|RX/A03|-41.518765|-73.08804|Trapen Sur|
-35 |PV|RX/A09|-41.328935|-72.968209|Puerto Varas|
-36 |COI|RXI/B03|-45.57993636|-72.06108480|Coyhaique I|
-37 |COII|RXI/B04|-45.57904645|-72.04996681| Coyhaique II|
-38 |PAr|RXII/C05|-53.158295|-70.921497|Punta Arenas|
+N° |Code      |Latitude    |Longitude    |Estation                  |
+---|----------|------------|-------------|--------------------------|
+1  | SA       |  -33.4508  |  -70.6604   | P. O'Higgins             |
+2  | CE1      |   -33.4795 |  -70.7190   | Cerrillos 1              |
+3  | CE       |  -33.4824  |  -70.7039   | Cerrillos                |
+4  | CN       |   -33.4197 |  -70.7317   | Cerro Navia              |
+5  | EB       |   -33.5336 |  -70.6659   | El Bosque                |
+6  | IN       |   -33.4089 |  -70.6508   | Independecia             |
+7  | LF       |   -33.5032 |  -70.5879   | La Florida               |
+8  | LC       |   -33.3634 |  -70.5230   | Las Condes               |
+9  | PU       |   -33.4244 |  -70.7498   | Pudahuel                 |
+10 | PA       |   -33.5779 |  -70.5941   | Puente Alto              |
+11 | QU       |    -33.336 |  -70.7235   | Quilicura                |
+12 | QU1      |   -33.3525 |  -70.7479   | Quilicura 1              |
+15 | AH       |   -20.2904 |  -70.1001   | Alto Hospicio            |
+16 | AR       |   -18.4768 |  -70.2879   | Arica                    |
+17 | TE       |   -38.7486 |  -72.6207   | Las Encinas Temuco       |
+18 | TEII     |   -38.7270 |  -72.5800   | Nielol Temuco            |
+19 | TEIII    |   -38.7253 |  -72.5711   | Museo Ferroviario Temuco |
+20 | PLCI     |   -38.7724 |  -72.5950   | Padre Las Casas I        |
+21 | PLCII    |   -38.7647 |  -72.5987   | Padre Las Casas II       |
+22 | LU       |   -40.2868 |  -73.0767   | La Union                 |
+23 | LR       |   -40.3212 |  -72.4718   | CESFAM Lago Ranco        |
+24 | MAI      |   -39.6656 |  -72.9537   | Mafil                    |
+25 | MAII     |   -39.5423 |  -72.9252   | Fundo La Ribera          |
+26 | MAIII    |   -39.7192 |  -73.1286   | Vivero Los Castanos      |
+27 | VA       |   -39.8313 |  -73.2285   | Valdivia I               |
+28 | VAII     |   -39.8054 |  -73.2587   | Valdivia II              |
+29 | OS       |   -40.5844 |  -73.1187   | Osorno                   |
+30 | OSII     |   -40.6837 |  -72.5963   | Entre Lagos              |
+31 | PMI      |   -41.3991 |  -72.8995   | Alerce                   |
+32 | PMII     |   -41.4795 |  -72.9687   | Mirasol                  |
+33 | PMIII    |   -41.5103 |  -73.0652   | Trapen Norte             |
+34 | PMIV     |   -41.5187 |  -73.0880   | Trapen Sur               |
+35 | PV       |   -41.3289 |  -72.9682   | Puerto Varas             |
+36 | COI      |   -45.5799 |  -72.0610   | Coyhaique I              |
+37 | COII     |   -45.5790 |  -72.0499   | Coyhaique II             |
+38 | PAr      |   -53.1582 |  -70.9214   | Punta Arenas             |
 
 
 
