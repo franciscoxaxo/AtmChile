@@ -18,8 +18,8 @@ The function has available the following air quality parameters:
 
 Parameter| Description                                      | Units
 ---------|--------------------------------------------------|----------
-PM10     |Particulate material minor to 10 micron           | ug/m^3^N
-PM25     |Particulate material minor to 2,5 micron          | ug/m^3^N 
+PM10     |Particulate material minor to 10 micron           | ug/m^3^ N
+PM25     |Particulate material minor to 2,5 micron          | ug/m^3^ N 
 NOX      |Nitrogen oxides                                   | ppb
 NO       |Nitrogen monoxide                                 | ppb
 NO2      |Nitrogen dioxide                                  | ppb
