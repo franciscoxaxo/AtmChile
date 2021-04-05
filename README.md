@@ -18,8 +18,8 @@ The function has available the following air quality parameters:
 
 Parameter| Description                                      | Units
 ---------|--------------------------------------------------|----------
-PM10     |Particulate material minor to 10 micron           | ug/ m^3^ N
-PM25     |Particulate material minor to 2,5 micron          | ug/ m^3^ N 
+PM10     |Particulate material minor to 10 micron           | ug/m^3^N
+PM25     |Particulate material minor to 2,5 micron          | ug/m^3^N 
 NOX      |Nitrogen oxides                                   | ppb
 NO       |Nitrogen monoxide                                 | ppb
 NO2      |Nitrogen dioxide                                  | ppb
@@ -49,6 +49,33 @@ N° |Code     |Latitude    |Longitude    |Estation         |
 12 |    QU1  |   -33.3525 |  -70.7479   |Quilicura 1      |
 13 |    COI  |-45.5799    | -72.0610    |Coyhaique I      |
 14 |   COII  |-45.5790    | -72.0499    |Coyhaique II     | 
+15 |AH       |RI/117|-20.290467|-70.100192|Alto Hospicio|
+16 |AR       |RXV/F01|-18.476839|-70.287911|Arica|
+17 |TE       |RIX/901|-38.748699|-72.620788|Las Encinas Temuco|
+18 |TEII     |RIX/905|-38.727003|-72.580002|Nielol Temuco|
+19 |TEIII    |RIX/904|-38.725302|-72.571193| Museo Ferroviario Temuco|
+20 |PLCI     |RIX/903|-38.772463|-72.595024|Padre Las Casas I|
+21 |PLCII    |RIX/902|-38.764767|-72.598796|Padre Las Casas II|
+22 |LU       |RXIV/E04|-40.286857|-73.07671|La Union|
+23 |LR       |RXIV/E06|-40.321282|-72.471895|CESFAM Lago Ranco|
+24 |MAI      |RXIV/E01|-39.665626|-72.953729|Mafil|
+25 |MAII     |RXIV/E05|-39.542346|-72.925205|Fundo La Ribera|
+26 |MAIII    |RXIV/E02|-39.719218|-73.128677|Vivero Los Castanos|
+27 |VA       |RXIV/E03|-39.831316|-73.228513|Valdivia I|
+28 |VAII     |RXIV/E08|-39.805429|-73.25873|Valdivia II|
+29 |OS|RX/A01|-40.584479|-73.11872|Osorno|
+30 |OSII|RX/A04|-40.683736|-72.596399|Entre Lagos|
+31 |PMI|RX/A08|-41.39917|-72.899523|Alerce|
+32 |PMII|RX/A07|-41.479507|-72.968756|Mirasol|
+33 |PMIII|RX/A02|-41.510342|-73.065294|Trapen Norte|
+34 |PMIV|RX/A03|-41.518765|-73.08804|Trapen Sur|
+35 |PV|RX/A09|-41.328935|-72.968209|Puerto Varas|
+36 |COI|RXI/B03|-45.57993636|-72.06108480|Coyhaique I|
+37 |COII|RXI/B04|-45.57904645|-72.04996681| Coyhaique II|
+38 |PAr|RXII/C05|-53.158295|-70.921497|Punta Arenas|
+
+
+
 
 
 
