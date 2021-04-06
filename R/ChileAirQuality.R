@@ -211,7 +211,7 @@ ChileAirQuality <- function(Comunas = "INFO", Parametros, fechadeInicio, fechade
                         print(paste(inParametro, inEstation))
                       }
                       , silent = TRUE)
-                  } else if(inParametro == "tEMP"|inParametro == "TeMP"|inParametro == "TEmP"|inParametro == "TEMp"
+                  } else if(inParametro == "tEMP" |inParametro == "TeMP"|inParametro == "TEmP" |inParametro == "TEMp"
                             |inParametro == "TEmp"|inParametro == "TeMp"|inParametro == "TemP"|inParametro == "tEMp"
                             |inParametro == "tEmP"|inParametro == "teMP"|inParametro == "temp"|inParametro == "TEMP"
                             |inParametro == "temP"|inParametro == "teMp"|inParametro == "tEmp"|inParametro == "Temp")

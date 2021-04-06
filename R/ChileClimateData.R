@@ -75,47 +75,75 @@ ChileClimateData <- function(Estaciones = "INFO", Parametros, inicio, fin){
           for(l in 1:lenParametros){
             if(Parametros[k] == parametros_list[l]){
 
-                for(m in 1:lendate){
+              for(m in 1:lendate){
 
-                    url3 <- paste(url1, estacion_var,"_",intervalo[m], "_", parametros_list[l], "_", sep = "")
-                    filename <- paste(estacion_var,"_",intervalo[m],"_", parametros_list[l], ".zip", sep = "")
-                    csvname <- paste(estacion_var,"_",intervalo[m],"_", parametros_list[l], "_.csv", sep = "")
-                    download.file(url3, destfile = filename, method = "curl")
+                url3 <- paste(url1, estacion_var,"_",intervalo[m], "_", parametros_list[l], "_", sep = "")
+                print(url3)
+                filename <- paste(estacion_var,"_",intervalo[m],"_", parametros_list[l], ".zip", sep = "")
+                csvname <- paste(estacion_var,"_",intervalo[m],"_", parametros_list[l], "_.csv", sep = "")
+                CSV <- NULL
+                download.file(url3, destfile = filename, method = "curl")
+                suppressWarnings({
+                  unzip(zipfile = filename)
+                  try({
+                    CSV <- read.csv(csvname, sep =  ";", dec = ".", encoding = "UTF-8")
+                  }, silent = T)
+                })
 
-                      unzip(zipfile = filename)
-                      file.remove(filename)
+                if(is.null(CSV)| length(CSV) == 0){
+                  momento1 <- as.POSIXct(strptime(paste("01-01-", intervalo[m], "00:00:00", sep =""), format = "%d-%m-%Y %H:%M:%S"))
+                  momento2 <- as.POSIXct(strptime(paste("31-12-", intervalo[m], "23:00:00", sep =""), format = "%d-%m-%Y %H:%M:%S"))
+                  momento <- seq(momento1, momento2, by = "hour")
+                  CodigoNacional <-rep("", length(momento))
+                  momento <- format(momento, format = "%d-%m-%Y %H:%M:%S")
 
-                      df <- rbind(df, read.csv(csvname, sep =  ";", dec = ".", encoding = "UTF-8"))
-
-                      file.remove(csvname)
-
+                  if(parametros_list[l] == "Temperatura"){
+                    Ts_Valor<- rep("", length(momento))
+                    CSV <- data.frame(CodigoNacional, momento, Ts_Valor)
+                  }else if(parametros_list[l] == "PuntoRocio"){
+                    Td_Valor<- rep("", length(momento))
+                    CSV <- data.frame(CodigoNacional, momento, Td_Valor)
+                  }else if(parametros_list[l] == "Humedad"){
+                    HR_Valor<- rep("", length(momento))
+                    CSV <- data.frame(CodigoNacional, momento, HR_Valor)
+                  }else if(parametros_list[l] == "Viento"){
+                    dd_Valor<- rep("", length(momento))
+                    ff_Valor<- rep("", length(momento))
+                    VRB_Valor<- rep("", length(momento))
+                    CSV <- data.frame(CodigoNacional, momento, dd_Valor,ff_Valor, VRB_Valor)
+                  }else if(parametros_list[l] == "PresionQFE"){
+                    QFE_Valor<- rep("", length(momento))
+                    CSV <- data.frame(CodigoNacional, momento, QFE_Valor)
+                  }else if(parametros_list[l] == "PresionQFF"){
+                    QFF_Valor<- rep("", length(momento))
+                    CSV <- data.frame(CodigoNacional, momento, QFF_Valor)
+                  }
                 }
-
+                df<- rbind(df, CSV)
+                suppressWarnings({
+                  file.remove(filename)
+                  file.remove(csvname)
+                })
+              }
+              if(parametros_list[l] == "Viento"){
+                df2 <- data.frame(df[2], df[3], df[4], df[5])
+              }else{
                 df2 <- data.frame(df[2], df[3])
-                setDT(df2)
-                data <- data[df2, on = c("date" = "momento")]
-                df   <- NULL
-                df2  <- NULL
+              }
+              setDT(df2)
+              data <- data[df2, on = c("date" = "momento")]
+              df   <- NULL
+              df2  <- NULL
             }
-
           }
-
-
         }
         if(is.null(data_total)){
           data_total<-data
         }else{
           data_total<-rbind(data_total, data)
         }
-
       }
-
     }
   }
   return(data_total)
 }
-
-
-
-
-
