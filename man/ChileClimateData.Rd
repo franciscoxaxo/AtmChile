@@ -4,7 +4,7 @@
 \alias{ChileClimateData}
 \title{Title ChileClimateData}
 \usage{
-ChileClimateData(Estaciones = "INFO", Parametros, inicio, fin)
+ChileClimateData(Estaciones = "INFO", Parametros, inicio, fin, Region = FALSE)
 }
 \arguments{
 \item{Estaciones}{data vector containing the  codes of the monitoring

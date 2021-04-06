@@ -19,8 +19,7 @@
 #' data <- ChileClimateData(Estaciones = "180005", Parametros = c("Temperatura", "Humedad"), inicio = "2020", fin = "2021")
 #'
 #'
-ChileClimateData <- function(Estaciones = "INFO", Parametros, inicio, fin){
-
+ChileClimateData <- function(Estaciones = "INFO", Parametros, inicio, fin, Region = FALSE){
 
 
   sysEstaciones   <- system.file("extdata", "Estaciones.csv", package = "climateandquality")
@@ -30,8 +29,8 @@ ChileClimateData <- function(Estaciones = "INFO", Parametros, inicio, fin){
     return(tablaEstaciones)
   }
   if(fin < inicio){
-    print("Verificar fechas de inicio y fin")
-    stop()
+    print()
+    stop("Verificar fechas de inicio y fin")
   }
 
   url1 <- "https://climatologia.meteochile.gob.cl/application/productos/gethistoricos/"
@@ -61,17 +60,23 @@ ChileClimateData <- function(Estaciones = "INFO", Parametros, inicio, fin){
   df2   <- NULL
   data_total <- data.frame()
 
+  if(Region == TRUE){
+    r <- 7
+  }else{
+    r <- 1
+  }
+
   for(i in 1:lenInEstaciones){
     for(j in 1:lenEstaciones){
-      if(Estaciones[i] == tablaEstaciones[j, 1]){
-        estacion_var <- tablaEstaciones[j, 1]
-        Latitud      <- tablaEstaciones[j, 5]
-        Longitud      <- tablaEstaciones[j, 6]
+      if(Estaciones[i] == tablaEstaciones[j, r]){
 
-        Nombre   <- rep(tablaEstaciones[j, 4], length(date))
-        Latitud  <- rep(tablaEstaciones[j, 5], length(date))
-        Longitud <- rep(tablaEstaciones[j, 6], length(date))
-        data     <- data.frame(date, Nombre, Latitud, Longitud)
+        estacion_var <- tablaEstaciones[j, 1]
+        Latitud     <-  tablaEstaciones[j, 5]
+        Longitud    <-  tablaEstaciones[j, 6]
+        Nombre      <-  rep(tablaEstaciones[j, 4], length(date))
+        Latitud     <-  rep(tablaEstaciones[j, 5], length(date))
+        Longitud    <-  rep(tablaEstaciones[j, 6], length(date))
+        data        <-  data.frame(date, Nombre, Latitud, Longitud)
         setDT(data)
 
         for(k in 1:lenInParametros){
