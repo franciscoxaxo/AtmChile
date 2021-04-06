@@ -7,7 +7,7 @@ Installation from GitHub:
         install_github("franciscoxaxo/climateandquality")
 
 Usage:
-
+        library(data.table)
         library(climateandquality)
 
 
