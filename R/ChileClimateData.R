@@ -12,6 +12,7 @@
 #' @import data.table
 #' @import utils
 #'
+#'
 #' @examples
 #' ChileClimateData()
 #'
@@ -19,6 +20,8 @@
 #'
 #'
 ChileClimateData <- function(Estaciones = "INFO", Parametros, inicio, fin){
+
+
 
   sysEstaciones   <- system.file("extdata", "Estaciones.csv", package = "climateandquality")
   tablaEstaciones <- read.csv(sysEstaciones, sep = "," , dec =".", encoding = "UTF-8")

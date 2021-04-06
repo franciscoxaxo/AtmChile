@@ -22,7 +22,6 @@
 #'
 #' ChileAirQuality(Comunas = "El Bosque", Parametros = c("PM10", "PM25"), fechadeInicio = "01/01/2020", fechadeTermino = "02/01/2020")
 #'
-#' data <- ChileAirQuality(Comunas = c("PA", "PU", "LC"), Parametros = "NOX", fechadeInicio = "01/01/2020", fechadeTermino = "02/01/2020", Site = TRUE, Curar = FALSE)
 
 
 ChileAirQuality <- function(Comunas = "INFO", Parametros, fechadeInicio, fechadeTermino, Site = FALSE, Curar = TRUE){
@@ -61,7 +60,7 @@ ChileAirQuality <- function(Comunas = "INFO", Parametros, fechadeInicio, fechade
     for (i in 1:length(Comunas)) {
       try({
         inEstation <- Comunas[i] # Asignar Comunas a variable
-        print(nrow(estationMatrix))
+
         for(j in 1:nrow(estationMatrix)){
           mSite      <-  estationMatrix[j, 1] #Asignar site a variable
           mCod       <-  estationMatrix[j, 2] #Asignar code a variable
