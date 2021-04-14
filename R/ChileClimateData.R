@@ -7,6 +7,7 @@
 #'
 #' @param inicio text string containing the start year of the data request.
 #' @param fin text string containing the end year of the data request.
+#' @param Region logical parameter. If region is true it allows to enter the administrative region in which the station is located instead of the station code.
 #'
 #' @export
 #' @import data.table
@@ -19,6 +20,7 @@
 #' data <- ChileClimateData(Estaciones = "180005", Parametros = c("Temperatura", "Humedad"), inicio = "2020", fin = "2021")
 #'
 #'
+#' data <- ChileClimateData(Estaciones = "II", Parametros = "Temperatura",, inicio = "2020", fin = "2021", Region = TRUE)
 ChileClimateData <- function(Estaciones = "INFO", Parametros, inicio, fin, Region = FALSE){
 
 
@@ -50,7 +52,7 @@ ChileClimateData <- function(Estaciones = "INFO", Parametros, inicio, fin, Regio
 
   start <- as.POSIXct(strptime(paste("01-01-", inicio, "00:00:00", sep =""), format = "%d-%m-%Y %H:%M:%S"))
   end <- as.POSIXct(strptime(paste("31-12-", fin, "23:00:00", sep =""), format = "%d-%m-%Y %H:%M:%S"))
-  horas<-(as.numeric(end)/3600-as.numeric(start)/3600)
+  #horas<-(as.numeric(end)/3600-as.numeric(start)/3600)
   date = NULL
 
   date <- seq(start, end, by = "hour")

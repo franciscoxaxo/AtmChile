@@ -4,7 +4,7 @@
 #'  stations. Available stations: "P. O'Higgins", "Cerrillos 1",
 #'   "Cerrillos", "Cerro Navia", "El Bosque", "Independecia", "La Florida",
 #'    "Las Condes", "Pudahuel", "Puente Alto "," Quilicura "," Quilicura 1 ",
-#'    " Coyhaique I "," Coyhaique II ".
+#'    " Coyhaique I "," Coyhaique II ". To see the full list of stations use ChileAirQuality()
 #' @param Parametros data vector containing the names of the air quality parameters.
 #'  Available parameters: "PM10", "PM25", "CO", "NOX", "NO2", "NO", "O3",
 #'  "temp" (temperature), "RH" (relative humidity), "ws" ( wind speed),
@@ -18,9 +18,10 @@
 #' @export
 #' @import utils
 #' @examples
-#' ChileAirQuality()
 #'
-#' ChileAirQuality(Comunas = "El Bosque", Parametros = c("PM10", "PM25"), fechadeInicio = "01/01/2020", fechadeTermino = "02/01/2020")
+#' stationList <- ChileAirQuality()
+#'
+#' data <- ChileAirQuality(Comunas = "El Bosque", Parametros = c("PM10", "PM25"), fechadeInicio = "01/01/2020", fechadeTermino = "02/01/2020")
 #'
 
 

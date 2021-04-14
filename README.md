@@ -8,7 +8,6 @@ Installation from GitHub:
 
 Usage:
 
-        library(data.table)
         library(climateandquality)
 
 

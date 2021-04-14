@@ -16,6 +16,8 @@ Available parameters: "Temperatura", "PuntoRocio", "Humedad","Viento", "PresionQ
 \item{inicio}{text string containing the start year of the data request.}
 
 \item{fin}{text string containing the end year of the data request.}
+
+\item{Region}{logical parameter. If region is true it allows to enter the administrative region in which the station is located instead of the station code.}
 }
 \description{
 function that compiles climate data from Climate direction of Chile (DMC)
@@ -26,4 +28,5 @@ ChileClimateData()
 data <- ChileClimateData(Estaciones = "180005", Parametros = c("Temperatura", "Humedad"), inicio = "2020", fin = "2021")
 
 
+data <- ChileClimateData(Estaciones = "II", Parametros = "Temperatura",, inicio = "2020", fin = "2021", Region = TRUE)
 }
