@@ -4,11 +4,11 @@ R package that allows compiling information on air quality parameters and meteor
 Installation from GitHub:
 
         library(devtools)
-        install_github("franciscoxaxo/climateandquality")
+        install_github("franciscoxaxo/AtmChile")
 
 Usage:
 
-        library(climateandquality)
+        library(AtmChile)
 
 
 ## ChileAirQuality
