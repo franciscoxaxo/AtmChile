@@ -20,7 +20,7 @@
 #' data <- ChileClimateData(Estaciones = "180005", Parametros = c("Temperatura", "Humedad"), inicio = "2020", fin = "2021")
 #'
 #'
-#' data <- ChileClimateData(Estaciones = "II", Parametros = "Temperatura",, inicio = "2020", fin = "2021", Region = TRUE)
+#' data <- ChileClimateData(Estaciones = "II", Parametros = "Temperatura", inicio = "2020", fin = "2021", Region = TRUE)
 ChileClimateData <- function(Estaciones = "INFO", Parametros, inicio, fin, Region = FALSE){
 
 
