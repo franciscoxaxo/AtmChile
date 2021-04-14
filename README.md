@@ -182,6 +182,7 @@ N.  | National Code     |                               Name     | Latitude   |L
 **inicio:** text string containing the start year of the data request.
 
 **fin:** text string containing the end year of the data request.
+
 **Region:** logical parameter. If region is true it allows to enter the administrative region in which the station is located instead of the station code.
 
 ### Examples:
