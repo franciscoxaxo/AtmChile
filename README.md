@@ -1,4 +1,4 @@
-# climateandquality
+# AtmChile
 R package that allows compiling information on air quality parameters and meteorological parameters of Chile from the sites of the National Air Quality System (SINCA) dependent on the Ministry of the Environment and the Meteorological Directorate of Chile (DMC) dependent on the Directorate General of Aeronautic.
 
 Installation from GitHub:
@@ -182,9 +182,13 @@ N.  | National Code     |                               Name     | Latitude   |L
 **inicio:** text string containing the start year of the data request.
 
 **fin:** text string containing the end year of the data request.
+**Region:** logical parameter. If region is true it allows to enter the administrative region in which the station is located instead of the station code.
 
 ### Examples:
 
 #### Example 1:
 
         ChileClimateData(Estaciones = c("180005", "200006"), Parametros = c("Temperatura", "Humedad", "Viento"), inicio = "2020", fin = "2021")
+        
+### Example 2:
+        ChileClimateData(Estaciones = "II", Parametros = "Temperatura", inicio = "2020", fin = "2021", Region = TRUE)
