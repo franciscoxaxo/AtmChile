@@ -7,6 +7,7 @@ Installation from GitHub:
         install_github("franciscoxaxo/AtmChile")
 
 Recomendation:
+
 This package use data.table. Sometimes the installation of this package don't install data.table automatically so it is recommended use:
 
         install.package("data.table")
