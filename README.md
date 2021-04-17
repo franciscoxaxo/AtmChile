@@ -110,12 +110,6 @@ N° |Code      |Latitude    |Longitude    |Estation                  | Ad. divis
 
         ChileAirQuality(Comunas = c("SA", "CE"), Parametros = c("NO2", "O3"), fechadeInicio = "01/01/2020,", fechadeTermino = "01/01/2021", Curar = FALSE, Site = TRUE)
         
-### User Interface
-
-The ChileAirQuality function has been implemented in a ShinyApp user interface with graphics functions for air quality analysis (OpenAir and Plotly packages):
-
-[ChileAirQuality ShinyApp](https://chileairquality.shinyapps.io/chileairquality/ "ShinyApp")
-
 
 
 ## ChileClimateData
@@ -200,3 +194,14 @@ N.  | National Code     |                               Name     | Latitude   |L
         
 ### Example 2:
         ChileClimateData(Estaciones = "II", Parametros = "Temperatura", inicio = "2020", fin = "2021", Region = TRUE)
+        
+## User Interface
+
+The ChileAirQuality function and the ChileClimateData has been implemented in a ShinyApp user interface with graphics functions for air quality analysis (OpenAir and Plotly packages):
+
+[ChileAirQuality ShinyApp](https://chileairquality.shinyapps.io/chileairquality/ "ShinyApp")
+
+
+
+
+
