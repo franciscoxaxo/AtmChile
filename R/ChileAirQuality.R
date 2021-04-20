@@ -15,14 +15,28 @@
 #'  nitrogen oxides, relative humidity and wind direction.
 #' @param Site logical value that allows entering the code of the monitoring
 #' station in the variable "Comunas"
+#' @return A data frame with air quality data.
 #' @export
 #' @import utils
 #' @examples
 #'
-#' stationList <- ChileAirQuality()
+#' try({
+#' stations <- ChileAirQuality()
+#' }, silent =TRUE)
 #'
-#' data <- ChileAirQuality(Comunas = "El Bosque", Parametros = c("PM10", "PM25"), fechadeInicio = "01/01/2020", fechadeTermino = "02/01/2020")
+#' try({
+#' data <- ChileAirQuality(Comunas = "El Bosque",
+#'  Parametros = c("PM10", "PM25"), fechadeInicio = "01/01/2020",
+#'   fechadeTermino = "02/01/2020")
+#' }, silent =TRUE)
 #'
+#' try({
+#' ChileAirQuality(Comunas = c("EB", "SA"),
+#' Parametros = "PM10", fechadeInicio = "01/01/2020",
+#' fechadeTermino = "01/01/2021", Site = TRUE)
+#' }, silent = TRUE)
+#'
+
 
 
 ChileAirQuality <- function(Comunas = "INFO", Parametros, fechadeInicio, fechadeTermino, Site = FALSE, Curar = TRUE){
@@ -192,10 +206,10 @@ ChileAirQuality <- function(Comunas = "INFO", Parametros, fechadeInicio, fechade
                         print(paste(inParametro,inEstation))
                       }
                       , silent = TRUE)
-                  } else if(inParametro == "NOX"|inParametro == "NOx"|
-                            inParametro == "nOX"|inParametro == "NoX"|
-                            inParametro == "Nox"|inParametro == "nOx"|
-                            inParametro == "nox"|inParametro == "noX")
+                  }else if(inParametro == "NOX"|inParametro == "NOx"|
+                           inParametro == "nOX"|inParametro == "NoX"|
+                           inParametro == "Nox"|inParametro == "nOx"|
+                           inParametro == "nox"|inParametro == "noX")
                   {
                     codParametro <- "/Cal/0NOX//0NOX.horario.horario.ic&"
                     url <- gsub(" ", "",paste(urlSinca, mCod, codParametro, id_fecha, urlSinca2))
@@ -211,10 +225,27 @@ ChileAirQuality <- function(Comunas = "INFO", Parametros, fechadeInicio, fechade
                         print(paste(inParametro, inEstation))
                       }
                       , silent = TRUE)
-                  } else if(inParametro == "tEMP" |inParametro == "TeMP"|inParametro == "TEmP" |inParametro == "TEMp"
-                            |inParametro == "TEmp"|inParametro == "TeMp"|inParametro == "TemP"|inParametro == "tEMp"
-                            |inParametro == "tEmP"|inParametro == "teMP"|inParametro == "temp"|inParametro == "TEMP"
-                            |inParametro == "temP"|inParametro == "teMp"|inParametro == "tEmp"|inParametro == "Temp")
+                  }else if(inParametro == "SO2"| inParametro == "so2"|
+                           inParametro == "sO2"| inParametro == "So2")
+                  {
+                    codParametro <- "/Cal/0001//0001.horario.horario.ic&" #codigo dioxido de asufre
+                    url <- gsub(" ", "",paste(urlSinca, mCod, codParametro, id_fecha, urlSinca2))
+                    try(
+                      {
+                        SO2_Bruto <- read.csv(url, dec =",", sep= ";", na.strings= "")
+                        SO2_col1 <- SO2_Bruto$Registros.validados
+                        SO2_col2 <- SO2_Bruto$Registros.preliminares
+                        SO2_col3 <- SO2_Bruto$Registros.no.validados
+                        SO2 <- gsub("NA","",gsub(" ", "",paste(SO2_col1,SO2_col2,SO2_col3)))
+                        if(length(SO2) == 0){SO2 <- rep("",horas + 1)}
+                        data <- data.frame(data, SO2)
+                        print(paste(inParametro,inEstation))
+                      }
+                      , silent = TRUE)
+                  }else if(inParametro == "tEMP" |inParametro == "TeMP"|inParametro == "TEmP" |inParametro == "TEMp"
+                           |inParametro == "TEmp"|inParametro == "TeMp"|inParametro == "TemP"|inParametro == "tEMp"
+                           |inParametro == "tEmP"|inParametro == "teMP"|inParametro == "temp"|inParametro == "TEMP"
+                           |inParametro == "temP"|inParametro == "teMp"|inParametro == "tEmp"|inParametro == "Temp")
                   {
                     codParametro <- "/Met/TEMP//horario_000.ic&"
                     url <- gsub(" ", "", paste(urlSinca, mCod, codParametro, id_fecha, urlSinca2))
@@ -301,35 +332,43 @@ ChileAirQuality <- function(Comunas = "INFO", Parametros, fechadeInicio, fechade
     if(Curar){
       len = nrow(data_total) #Variable que almacena el numero de filas del dataframe
 
-      try({
-        for (i in 1:len)
-        {
-          try(
-            {
-              if((as.numeric(data_total$NO[i]) + as.numeric(data_total$NO2[i])) > as.numeric(data_total$NOX[i]) * 1.001){
-                data_total$NO[i] = "" #Si la suma de NO y NO2 es mayor a NOX
-                data_total$NO2[i] = "" #Eliminar el dato de NO, NO2 y NOX
-                data_total$NOX[i] = "" #Conciderando error del 0.1%
+      if((length(data_total$NO)  != 0) &
+         (length(data_total$NO2) != 0) &
+         (length(data_total$NOX) != 0)){
+        try({
+          for (i in 1:len)
+          {
+            try(
+              {
+                if((as.numeric(data_total$NO[i]) + as.numeric(data_total$NO2[i])) > as.numeric(data_total$NOX[i]) * 1.001){
 
-              }
-            }
-            , silent = T)
-        }
-      }, silent = T)
+                  data_total$NO[i] = "" #Si la suma de NO y NO2 es mayor a NOX
+                  data_total$NO2[i] = "" #Eliminar el dato de NO, NO2 y NOX
+                  data_total$NOX[i] = "" #Conciderando error del 0.1%
 
-      try({
-        for (i in 1:len)
-        {
-          try(
-            {
-              if(as.numeric(data_total$PM25[i]) > as.numeric(data_total$PM10[i])*1.001){
-                data_total$PM10[i] = "" #Si PM25 es mayor a PM10 borrar PM10
-                data_total$PM25[i] = "" #Y PM25 conciderando error del 0.1%
+                }
               }
-            }
-            ,silent = T)
-        }
-      }, silent = T)
+              , silent = T)
+          }
+        }, silent = T)
+      }
+
+      if((length(data_total$PM25)  != 0) &
+         (length(data_total$PM10)  != 0)){
+        try({
+          for (i in 1:len)
+          {
+            try(
+              {
+                if(as.numeric(data_total$PM25[i]) > as.numeric(data_total$PM10[i])*1.001){
+                  data_total$PM10[i] = "" #Si PM25 es mayor a PM10 borrar PM10
+                  data_total$PM25[i] = "" #Y PM25 conciderando error del 0.1%
+                }
+              }
+              ,silent = T)
+          }
+        }, silent = T)
+      }
 
       try({
         for (i in 1:len)
