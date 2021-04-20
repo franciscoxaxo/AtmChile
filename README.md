@@ -186,7 +186,7 @@ N.  | National Code     |                               Name     | Latitude   |L
 
         ChileClimateData(Estaciones = c("180005", "200006"), Parametros = c("Temperatura", "Humedad", "Viento"), inicio = "2020", fin = "2021")
         
-### Example 2:
+#### Example 2:
         ChileClimateData(Estaciones = "II", Parametros = "Temperatura", inicio = "2020", fin = "2021", Region = TRUE)
         
 ## User Interface
