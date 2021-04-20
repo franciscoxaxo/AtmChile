@@ -26,7 +26,8 @@ The function has available the following air quality parameters:
 Parameter| Description                                      | Units
 ---------|--------------------------------------------------|----------
 PM10     |Particulate material minor to 10 micron           | ug/m^{3}N
-PM25     |Particulate material minor to 2,5 micron          | ug/m^{3}N 
+PM25     |Particulate material minor to 2,5 micron          | ug/m^{3}N
+SO2      |Sulfur dioxide                                    | ug/m^{3}N
 NOX      |Nitrogen oxides                                   | ppb
 NO       |Nitrogen monoxide                                 | ppb
 NO2      |Nitrogen dioxide                                  | ppb
@@ -77,7 +78,7 @@ N° |Code      |Latitude    |Longitude    |Estation                  | Ad. divis
 35 | PV       |   -41.3289 |  -72.9682   | Puerto Varas             | X            |
 36 | COI      |   -45.5799 |  -72.0610   | Coyhaique I              | XI           |
 37 | COII     |   -45.5790 |  -72.0499   | Coyhaique II             | XI           |
-38 | PAr      |   -53.1582 |  -70.9214   | Punta Arenas             | XII          |
+38 | PAR      |   -53.1582 |  -70.9214   | Punta Arenas             | XII          |
 
 
 
@@ -90,7 +91,7 @@ N° |Code      |Latitude    |Longitude    |Estation                  | Ad. divis
 
         ChileAirQuality()
 
-**Parametros:** data vector containing the names of the air quality parameters. Available parameters: "PM10", "PM25", "CO", "NOX", "NO2", "NO", "O3", "temp" (temperature), "RH" (relative humidity), "ws" ( wind speed),   "wd" (wind direction).
+**Parametros:** data vector containing the names of the air quality parameters. Available parameters: "PM10", "PM25", "CO", "NOX", "NO2", "NO", "O3", "SO2", "temp" (temperature), "RH" (relative humidity), "ws" ( wind speed),   "wd" (wind direction).
 
 **fechadeInicio:** text string containing the start date of the data request.
 
