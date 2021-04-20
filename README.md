@@ -1,19 +1,12 @@
 # AtmChile
 R package that allows compiling information on air quality parameters and meteorological parameters of Chile from the sites of the National Air Quality System (SINCA) dependent on the Ministry of the Environment and the Meteorological Directorate of Chile (DMC) dependent on the Directorate General of Aeronautic.
 
-Installation from GitHub:
+**Installation from GitHub:**
 
         library(devtools)
         install_github("franciscoxaxo/AtmChile")
-
-Recomendation:
-
-This package use data.table. Sometimes the installation of this package don't install data.table automatically so it is recommended use:
-
-        install.package("data.table")
-        library(data.table)
-
-Usage:
+        
+**Usage:**
 
         library(AtmChile)
 
