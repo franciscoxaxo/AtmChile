@@ -164,7 +164,13 @@ ChileClimateData <- function(Estaciones = "INFO", Parametros, inicio, fin, Regio
       }
     }
   }
+
+
   data_total$date <- format(as.POSIXct(strptime(data_total$date, format = "%d-%m-%Y %H:%M:%S")), format = "%d/%m/%Y %H:%M")
+
+  data_total <- data_total[!(is.na(data_total$date)),]
+
   data_total <- as.data.frame(data_total)
+
   return(data_total)
 }
