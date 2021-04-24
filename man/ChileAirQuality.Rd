@@ -35,13 +35,28 @@ station in the variable "Comunas"}
 \item{Curar}{logical value that activates data curation for particulate matter,
 nitrogen oxides, relative humidity and wind direction.}
 }
+\value{
+A data frame with air quality data.
+}
 \description{
 function that compiles air quality data from the National Air Quality System (SINCA)
 }
 \examples{
 
-stationList <- ChileAirQuality()
+try({
+stations <- ChileAirQuality()
+}, silent =TRUE)
 
-data <- ChileAirQuality(Comunas = "El Bosque", Parametros = c("PM10", "PM25"), fechadeInicio = "01/01/2020", fechadeTermino = "02/01/2020")
+try({
+data <- ChileAirQuality(Comunas = "El Bosque",
+ Parametros = c("PM10", "PM25"), fechadeInicio = "01/01/2020",
+  fechadeTermino = "02/01/2020")
+}, silent =TRUE)
+
+try({
+ChileAirQuality(Comunas = c("EB", "SA"),
+Parametros = "PM10", fechadeInicio = "01/01/2020",
+fechadeTermino = "01/01/2021", Site = TRUE)
+}, silent = TRUE)
 
 }

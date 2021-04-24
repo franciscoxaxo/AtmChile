@@ -1,11 +1,17 @@
 Package: AtmChile
 Type: Package
-Title: Library that allows compiling information on air quality and meteorological parameters of Chile
+Title: Download air quality and meteorological information of Chile
 Version: 0.1.0
-Author: Francisco Catalan Meyer
+Authors@R: c(person("Francisco", "Catalán", email = "francisco.catalan@ug.uchile.cl",
+  role = c("aut", "cre"), comment = c(ORCID = "0000-0003-3506-5376")),
+  person("Manuel", "Leiva", email = "MANLEIVA@uchile.cl",
+  role = c("aut"), comment = c(ORCID = "0000-0001-8891-0399")),
+  person("Richard", "Toro", email = "rtoro81@uchile.cl",
+  role = c("aut"))
+  )
 Maintainer: Francisco Catalan Meyer <francisco.catalan@ug.uchile.cl>
-Description: Library that allows compiling information on air quality parameters and meteorological parameters of Chile from the sites of the National Air Quality System (SINCA) dependent on the Ministry of the Environment and the Meteorological Directorate of Chile (DMC) dependent on the Directorate General of Civil Aeronautics.
-License: GPL-3
+Description: Download air quality and meteorological information of Chile from the sites of the National Air Quality System (SINCA) dependent on the Ministry of the Environment and the Meteorological Directorate of Chile (DMC) dependent on the Directorate General of Civil Aeronautics.
+License: GPL-3 + file LICENSE
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.1

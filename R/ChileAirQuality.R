@@ -79,8 +79,8 @@ ChileAirQuality <- function(Comunas = "INFO", Parametros, fechadeInicio, fechade
         for(j in 1:nrow(estationMatrix)){
           mSite      <-  estationMatrix[j, 1] #Asignar site a variable
           mCod       <-  estationMatrix[j, 2] #Asignar code a variable
-          mLat       <-  estationMatrix[j, 3] #Asignar latitud a variable
-          mLon       <-  estationMatrix[j, 4] #Asignar longitud a variable
+          mLon       <-  estationMatrix[j, 3] #Asignar latitud a variable
+          mLat       <-  estationMatrix[j, 4] #Asignar longitud a variable
           mEstation  <-  estationMatrix[j, 5] #Asignar estacion a variable
           if(Site){                 # Si Site es verdadero
             aux      <-  mSite      #aux, la variable de comparacion

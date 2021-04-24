@@ -8,7 +8,7 @@ ChileClimateData(Estaciones = "INFO", Parametros, inicio, fin, Region = FALSE)
 }
 \arguments{
 \item{Estaciones}{data vector containing the  codes of the monitoring
-stations. To see the table with the monitoring stations use ClimateData()}
+stations. To see the table with the monitoring stations use ChileClimateData()}
 
 \item{Parametros}{data vector containing the names of the climate parameters.
 Available parameters: "Temperatura", "PuntoRocio", "Humedad","Viento", "PresionQFE", "PresionQFF".}
@@ -23,10 +23,18 @@ Available parameters: "Temperatura", "PuntoRocio", "Humedad","Viento", "PresionQ
 function that compiles climate data from Climate direction of Chile (DMC)
 }
 \examples{
-ChileClimateData()
 
-data <- ChileClimateData(Estaciones = "180005", Parametros = c("Temperatura", "Humedad"), inicio = "2020", fin = "2021")
+try({ChileClimateData()}, silent = TRUE)
 
+try({
+head(ChileClimateData(Estaciones = "180005",
+ Parametros = c("Temperatura", "Humedad"),
+  inicio = "2020", fin = "2021"))
+}, silent = TRUE)
 
-data <- ChileClimateData(Estaciones = "II", Parametros = "Temperatura",, inicio = "2020", fin = "2021", Region = TRUE)
+try({
+ChileClimateData(Estaciones = "II",
+ Parametros = "Temperatura", inicio = "2020",
+  fin = "2021", Region = TRUE)
+}, silent = TRUE)
 }
