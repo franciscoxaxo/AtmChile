@@ -101,13 +101,15 @@ ChileClimateData <- function(Estaciones = "INFO", Parametros, inicio, fin, Regio
                 filename <- paste(estacion_var,"_",intervalo[m],"_", parametros_list[l], ".zip", sep = "")
                 csvname <- paste(estacion_var,"_",intervalo[m],"_", parametros_list[l], "_.csv", sep = "")
                 CSV <- NULL
-                download.file(url3, destfile = filename, method = "curl")
-                suppressWarnings({
-                  unzip(zipfile = filename)
-                  try({
-                    CSV <- read.csv(csvname, sep =  ";", dec = ".", encoding = "UTF-8")
-                  }, silent = T)
-                })
+                try({
+                  download.file(url3, destfile = filename, method = "curl")
+                  suppressWarnings({
+                    unzip(zipfile = filename)
+                    try({
+                      CSV <- read.csv(csvname, sep =  ";", dec = ".", encoding = "UTF-8")
+                    }, silent = T)
+                  })
+                }, silent = TRUE)
 
                 if(is.null(CSV)| length(CSV) == 0){
                   momento1 <- as.POSIXct(strptime(paste("01-01-", intervalo[m], "00:00:00", sep =""), format = "%d-%m-%Y %H:%M:%S"))
@@ -171,9 +173,11 @@ ChileClimateData <- function(Estaciones = "INFO", Parametros, inicio, fin, Regio
   data_total <- data_total[!(is.na(data_total$date)),]
   data_total <- data_total[!(is.na(data_total$Nombre)),]
 
-  data_total <- as.data.frame(data_total)
+
   for(i in 3:ncol(data_total)){
-      data_total[[i]]  <-  as.numeric(data_total[[i]]) #transformar columnas en variables numericas
+    data_total[[i]]  <-  as.numeric(data_total[[i]]) #transformar columnas en variables numericas
   }
+  data_total <- as.data.frame(data_total)
+
   return(data_total)
 }

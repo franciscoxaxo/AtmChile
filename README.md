@@ -1,14 +1,14 @@
-# AtmChile
+# climateandquality
 R package that allows compiling information on air quality parameters and meteorological parameters of Chile from the sites of the National Air Quality System (SINCA) dependent on the Ministry of the Environment and the Meteorological Directorate of Chile (DMC) dependent on the Directorate General of Aeronautic.
 
-**Installation from GitHub:**
+Installation from GitHub:
 
         library(devtools)
-        install_github("franciscoxaxo/AtmChile")
-        
-**Usage:**
+        install_github("franciscoxaxo/climateandquality")
 
-        library(AtmChile)
+Usage:
+
+        library(climateandquality)
 
 
 ## ChileAirQuality
@@ -18,9 +18,8 @@ The function has available the following air quality parameters:
 
 Parameter| Description                                      | Units
 ---------|--------------------------------------------------|----------
-PM10     |Particulate material minor to 10 micron           | ug/m^{3}N
-PM25     |Particulate material minor to 2,5 micron          | ug/m^{3}N
-SO2      |Sulfur dioxide                                    | ug/m^{3}N
+PM10     |Particulate material minor to 10 micron           | ug/m^3^N
+PM25     |Particulate material minor to 2,5 micron          | ug/m^3^N 
 NOX      |Nitrogen oxides                                   | ppb
 NO       |Nitrogen monoxide                                 | ppb
 NO2      |Nitrogen dioxide                                  | ppb
@@ -71,7 +70,7 @@ N° |Code      |Latitude    |Longitude    |Estation                  | Ad. divis
 35 | PV       |   -41.3289 |  -72.9682   | Puerto Varas             | X            |
 36 | COI      |   -45.5799 |  -72.0610   | Coyhaique I              | XI           |
 37 | COII     |   -45.5790 |  -72.0499   | Coyhaique II             | XI           |
-38 | PAR      |   -53.1582 |  -70.9214   | Punta Arenas             | XII          |
+38 | PAr      |   -53.1582 |  -70.9214   | Punta Arenas             | XII          |
 
 
 
@@ -84,7 +83,7 @@ N° |Code      |Latitude    |Longitude    |Estation                  | Ad. divis
 
         ChileAirQuality()
 
-**Parametros:** data vector containing the names of the air quality parameters. Available parameters: "PM10", "PM25", "CO", "NOX", "NO2", "NO", "O3", "SO2", "temp" (temperature), "RH" (relative humidity), "ws" ( wind speed),   "wd" (wind direction).
+**Parametros:** data vector containing the names of the air quality parameters. Available parameters: "PM10", "PM25", "CO", "NOX", "NO2", "NO", "O3", "temp" (temperature), "RH" (relative humidity), "ws" ( wind speed),   "wd" (wind direction).
 
 **fechadeInicio:** text string containing the start date of the data request.
 
@@ -104,6 +103,12 @@ N° |Code      |Latitude    |Longitude    |Estation                  | Ad. divis
 
         ChileAirQuality(Comunas = c("SA", "CE"), Parametros = c("NO2", "O3"), fechadeInicio = "01/01/2020,", fechadeTermino = "01/01/2021", Curar = FALSE, Site = TRUE)
         
+### User Interface
+
+The ChileAirQuality function has been implemented in a ShinyApp user interface with graphics functions for air quality analysis (OpenAir and Plotly packages):
+
+[ChileAirQuality ShinyApp](https://chileairquality.shinyapps.io/chileairquality/ "ShinyApp")
+
 
 
 ## ChileClimateData
@@ -178,24 +183,8 @@ N.  | National Code     |                               Name     | Latitude   |L
 
 **fin:** text string containing the end year of the data request.
 
-**Region:** logical parameter. If region is true it allows to enter the administrative region in which the station is located instead of the station code.
-
 ### Examples:
 
 #### Example 1:
 
         ChileClimateData(Estaciones = c("180005", "200006"), Parametros = c("Temperatura", "Humedad", "Viento"), inicio = "2020", fin = "2021")
-        
-#### Example 2:
-        ChileClimateData(Estaciones = "II", Parametros = "Temperatura", inicio = "2020", fin = "2021", Region = TRUE)
-        
-## User Interface
-
-The ChileAirQuality function and the ChileClimateData has been implemented in a ShinyApp user interface with graphics functions for air quality analysis (OpenAir and Plotly packages):
-
-[ChileAirQuality ShinyApp](https://chileairquality.shinyapps.io/chileairquality/ "ShinyApp")
-
-
-
-
-
