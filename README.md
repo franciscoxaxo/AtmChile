@@ -6,6 +6,11 @@ R package that allows compiling information on air quality parameters and meteor
         library(devtools)
         install_github("franciscoxaxo/AtmChile")
         
+ **Istallation from CRAN:**
+ 
+        install.package("AtmChile")
+ 
+        
 **Usage:**
 
         library(AtmChile)
