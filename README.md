@@ -8,7 +8,7 @@ R package that allows compiling information on air quality parameters and meteor
         
  **Istallation from CRAN:**
  
-        install.package("AtmChile")
+        install.packages("AtmChile")
  
         
 **Usage:**
