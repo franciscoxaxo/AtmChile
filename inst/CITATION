@@ -1,0 +1,21 @@
+citHeader("To cite AtmChile in publications use:")
+
+cit <- c(
+  person("Francisco", "Catalán"),
+  person("Damián", "Chandia"),
+  person("Richard", "Toro Araya"),
+  person("Manuel A.", "Leiva Guzman")
+)
+
+bibentry(
+  bibtype = "Article",
+  title = "The AtmChile Open-Source Interactive Application for Exploring Air Quality and Meteorological Data in Chile",
+  author = cit,
+  journal = "Atmosphere",
+  year = "2022",
+  volume = "13",
+  number = "9",
+  pages = "1364",
+  url = "https://www.mdpi.com/2073-4433/13/9/1364",
+  textVersion = "Catalán, F.; Chandia, D.; Toro Araya, R.; Leiva Guzman, M.A. The AtmChile Open-Source Interactive Application for Exploring Air Quality and Meteorological Data in Chile. Atmosphere 2022, 13, 1364. https://doi.org/10.3390/atmos13091364"
+)

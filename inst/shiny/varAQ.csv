@@ -1,0 +1,12 @@
+Parámetro, Descripción, Unidades
+PM10, Material Particulado Respirable menor a 10 micras, µg/m³N
+PM25, Material Particulado Respirable menor a 2.5 micras, µg/m³N
+NOX, Óxido de Nitrógeno, ppb
+NO, Monóxido de Nitrógeno, ppb
+NO2, Dióxido de Nitrógeno, ppb
+O3, Ozono troposférico, ppb
+CO, Monóxido de carbono, ppb
+temp, Temperatura, °C
+ws, Velocidad del Viento, m/s
+wd, Dirección del viento, °
+HR, Humedad Relativa, %

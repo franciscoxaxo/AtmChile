@@ -1,0 +1,28 @@
+Package: AtmChile
+Type: Package
+Title: Download Air Quality and Meteorological Information of Chile
+Version: 1.0.4
+Authors@R: c(person("Francisco", "Catalan Meyer", email = "francisco.catalan@ug.uchile.cl",
+  role = c("aut", "cre"), comment = c(ORCID = "0000-0003-3506-5376")),
+  person("Manuel", "Leiva", email = "MANLEIVA@uchile.cl",
+  role = c("aut"), comment = c(ORCID = "0000-0001-8891-0399")),
+  person("Richard", "Toro", email = "rtoro81@uchile.cl",
+  role = c("aut"))
+  )
+Maintainer: Francisco Catalan Meyer <francisco.catalan@ug.uchile.cl>
+Description: Download air quality and meteorological information of Chile from  the National Air Quality System (S.I.N.C.A.)<https://sinca.mma.gob.cl/> dependent on the Ministry of the Environment and the Meteorological Directorate of Chile (D.M.C.)<https://www.meteochile.gob.cl/> dependent on the Directorate General of Civil Aeronautics.
+License: GPL-3
+URL: https://github.com/franciscoxaxo/AtmChile
+BugReports: https://github.com/franciscoxaxo/AtmChile/issues
+Encoding: UTF-8
+RoxygenNote: 7.3.2
+Imports: data.table, plotly, shiny, openair, lubridate,
+        shinycssloaders, DT
+NeedsCompilation: no
+Packaged: 2025-01-26 01:32:26 UTC; franc
+Author: Francisco Catalan Meyer [aut, cre]
+    (<https://orcid.org/0000-0003-3506-5376>),
+  Manuel Leiva [aut] (<https://orcid.org/0000-0001-8891-0399>),
+  Richard Toro [aut]
+Repository: CRAN
+Date/Publication: 2025-01-26 23:20:06 UTC

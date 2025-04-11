@@ -1,0 +1,9 @@
+Parámetros,Descripción,Unidad
+Ts,Temperatura de aire seco,°C
+Td,Temperatura de punto de rocio,°C
+HR,Humedad relativa,%
+QFF,Presión en el entorno aeronáutico,Pa
+QFE,Presión a nivel del mar,Pa
+dd,Dirección del viento,°
+ff,Velocidad del viento,m/s
+VRB,Variabilidad del viento,Boolean
